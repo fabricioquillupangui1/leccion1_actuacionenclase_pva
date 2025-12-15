@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fundamentos de Programación: Expresiones y Operadores con Kotlin</title>
+    <style>
+        /* --- ESTILOS GENERALES Y DISEÑO --- */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f7f9;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            background: #ffffff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #007bff;
+            margin-bottom: 30px;
+        }
+
+        h1 {
+            color: #007bff;
+            font-size: 2.5em;
+            margin: 0;
+        }
+
+        h2 {
+            color: #28a745;
+            border-left: 5px solid #28a745;
+            padding-left: 10px;
+            margin-top: 40px;
+            margin-bottom: 20px;
+            font-size: 1.8em;
+        }
+
+        h3 {
+            color: #6c757d;
+            margin-top: 25px;
+            border-bottom: 1px dashed #ccc;
+            padding-bottom: 5px;
+            font-size: 1.3em;
+        }
+
+        /* --- CÓDIGO Y EJEMPLOS --- */
+        pre {
+            background-color: #272822; /* Color oscuro para el código */
+            color: #f8f8f2;
+            padding: 15px;
+            border-radius: 6px;
+            overflow-x: auto;
+            font-size: 0.95em;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        
+        code {
+            font-family: Consolas, "Courier New", monospace;
+        }
+
+        /* --- TABLAS DE OPERADORES --- */
+        .table-section {
+            margin-top: 20px;
+            margin-bottom: 40px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        th, td {
+            border: 1px solid #dee2e6;
+            padding: 12px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #007bff;
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f8f9fa; /* Color para filas pares */
+        }
+
+        /* --- SECCIÓN DE IMAGENES Y EJERCICIOS --- */
+        .image-placeholder {
+            min-height: 250px;
+            background-color: #e9ecef;
+            border: 2px dashed #adb5bd;
+            border-radius: 8px;
+            margin: 20px 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-style: italic;
+            font-size: 1.1em;
+            text-align: center;
+        }
+
+        .exercise {
+            border: 1px solid #ffc107;
+            background-color: #fff3cd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+
+        .solution-step {
+            margin-top: 10px;
+            padding-left: 15px;
+            border-left: 3px solid #ffc107;
+        }
+        
+        .solution-step strong {
+            color: #856404;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fundamentos Clave de Programación con Kotlin</h1>
+            <p>Expresiones, Operadores y Funciones en el lenguaje de Android</p>
+        </header>
+
+        <section id="expresiones">
+            <h2>1. ¿Qué es una Expresión?</h2>
+            
+            <p>En Kotlin, una expresión es una combinación de valores, variables, operadores y/o llamadas a funciones que el compilador evalúa para producir un único valor. A diferencia de una declaración (que realiza una acción), una expresión siempre tiene un resultado.</p>
+
+            <h3>Tipos Comunes de Expresiones</h3>
+            <ul>
+                <li><strong>Expresiones Aritméticas:</strong> Producen un valor numérico (<code>Int</code>, <code>Double</code>).</li>
+                <li><strong>Expresiones Lógicas/Booleanas:</strong> Producen un valor booleano (<code>Boolean</code>: <code>true</code> o <code>false</code>).</li>
+                <li><strong>Expresiones de Cadena:</strong> Involucran la concatenación o el uso de *template strings*. Producen un <code>String</code>.</li>
+            </ul>
+
+            <h3>Ejemplos de Expresiones en Kotlin</h3>
+            
+            <p><strong>Aritmética:</strong> Calcula el área de un círculo.</p>
+            <pre><code>
+val radio: Double = 5.0
+// Expresión: 3.14 * radio * radio
+val area = 3.14 * radio * radio // area será 78.5 (Double)
+            </code></pre>
+
+            <p><strong>Lógica:</strong> Verifica si un usuario es mayor de edad Y si está activo.</p>
+            <pre><code>
+val edad: Int = 25
+val activo: Boolean = true
+// Expresión: (edad >= 18) && activo
+val esValido = (edad >= 18) && activo // esValido será true (Boolean)
+            </code></pre>
+            
+            <p><strong>Cadena:</strong> Combina una variable dentro de una cadena (template string).</p>
+            <pre><code>
+val nombre = "Alice"
+val saludo = "Hola, $nombre!" // saludo será "Hola, Alice!" (String)
+            </code></pre>
+            
+            <div class="image-placeholder">
+                <p><img src="https://www.monografias.com/trabajos14/progorie/Image2132.gif">Diagrama o tabla visual sobre la anatomía de una Expresión.</p>
+            </div>
+            
+        </section>
+
+        <hr class="section-separator">
+
+        <section id="operadores">
+            <h2>2. Tipos de Operadores en Kotlin</h2>
+            
+            <p>Los operadores son funciones especiales que realizan cálculos o comparaciones sobre los operandos (valores o variables).</p>
+
+            <div class="table-section">
+                <h3>Operadores Aritméticos</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Función</th>
+                            <th>Ejemplo (<code>a=10, b=3</code>)</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>+</code></td>
+                            <td>Suma / Concatenación</td>
+                            <td><code>a + b</code></td>
+                            <td>13</td>
+                        </tr>
+                        <tr>
+                            <td><code>-</code></td>
+                            <td>Resta</td>
+                            <td><code>a - b</code></td>
+                            <td>7</td>
+                        </tr>
+                        <tr>
+                            <td><code>*</code></td>
+                            <td>Multiplicación</td>
+                            <td><code>a * b</code></td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td><code>/</code></td>
+                            <td>División</td>
+                            <td><code>a / b</code></td>
+                            <td>3 (División entera)</td>
+                        </tr>
+                        <tr>
+                            <td><code>%</code></td>
+                            <td>Módulo (Residuo de la división)</td>
+                            <td><code>a % b</code></td>
+                            <td>1</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-section">
+                <h3>Operadores Relacionales (Comparación)</h3>
+                <p>Se utilizan para comparar dos valores. Siempre devuelven un valor <code>Boolean</code>.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Significado</th>
+                            <th>Ejemplo (<code>x=5, y=10</code>)</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>==</code></td>
+                            <td>Igual a (compara valor)</td>
+                            <td><code>x == 5</code></td>
+                            <td>true</td>
+                        </tr>
+                        <tr>
+                            <td><code>!=</code></td>
+                            <td>Diferente de</td>
+                            <td><code>x != y</code></td>
+                            <td>true</td>
+                        </tr>
+                        <tr>
+                            <td><code>&gt;</code></td>
+                            <td>Mayor que</td>
+                            <td><code>y > x</code></td>
+                            <td>true</td>
+                        </tr>
+                        <tr>
+                            <td><code>&lt;=</code></td>
+                            <td>Menor o igual que</td>
+                            <td><code>x <= 5</code></td>
+                            <td>true</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="table-section">
+                <h3>Operadores Lógicos</h3>
+                <p>Se usan para combinar dos o más expresiones booleanas. Nota: En Kotlin se usan palabras clave o símbolos dobles.</p>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Operador</th>
+                            <th>Nombre</th>
+                            <th>Función</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><code>&amp;&amp;</code> (o <code>and</code>)</td>
+                            <td>Y Lógico (AND)</td>
+                            <td>Devuelve <code>true</code> si ambas condiciones son <code>true</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><code>||</code> (o <code>or</code>)</td>
+                            <td>O Lógico (OR)</td>
+                            <td>Devuelve <code>true</code> si al menos una condición es <code>true</code>.</td>
+                        </tr>
+                        <tr>
+                            <td><code>!</code> (o <code>not</code>)</td>
+                            <td>Negación (NOT)</td>
+                            <td>Invierte el valor booleano.</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="image-placeholder">
+                <p><img src="https://espaciotecnologico.co/wp-content/uploads/2018/01/OL-3.jpg"/> Tabla de verdad del operador AND (Y Lógico).</p>
+            </div>
+            
+
+            
+        </section>
+
+        <hr class="section-separator">
+
+        <section id="funciones">
+            <h2>3. Ejercicios Prácticos sobre Funciones (Kotlin)</h2>
+            
+            <p>Una función (<code>fun</code>) es un bloque de código reutilizable que a menudo utiliza expresiones y operadores para calcular un resultado.</p>
+
+            <div class="exercise">
+                <h3>Ejercicio 1: Calculadora de IVA (19%)</h3>
+                <p><strong>Descripción:</strong> Crea una función que acepte un precio y devuelva el precio final con un 19% de IVA aplicado.</p>
+                
+                <p><strong>Código de la Función (Kotlin):</strong></p>
+                <pre><code>
+fun calcularIva(precioBase: Double): Double {
+    // Expresión: precioBase * 0.19  (Calcula el IVA)
+    val iva = precioBase * 0.19
+    // Expresión: precioBase + iva (Calcula el total)
+    val precioFinal = precioBase + iva 
+    return precioFinal
+}
+
+fun main() {
+    println(calcularIva(100.0)) // Output: 119.0
+}
+                </code></pre>
+                
+                <div class="solution-step">
+                    <strong>Solución Paso a Paso:</strong>
+                    <p>1. La función recibe <code>100.0</code>.</p>
+                    <p>2. Calcula el IVA: <code>100.0 * 0.19</code>, lo que resulta en <code>19.0</code>.</p>
+                    <p>3. Calcula el precio final: <code>100.0 + 19.0</code>, lo que resulta en <code>119.0</code>.</p>
+                    <p><strong>Resultado Final:</strong> 119.0</p>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>Ejercicio 2: Verificación de Contraseña</h3>
+                <p><strong>Descripción:</strong> Crea una función que devuelva <code>true</code> si la contraseña tiene más de 8 caracteres Y si no contiene la subcadena "123".</p>
+                
+                <p><strong>Código de la Función (Kotlin):</strong></p>
+                <pre><code>
+fun esSegura(contraseña: String): Boolean {
+    // Expresión Lógica usando operadores relacionales y lógicos
+    // (contraseña.length > 8) && (!contraseña.contains("123"))
+    return (contraseña.length > 8) && (!contraseña.contains("123"))
+}
+
+fun main() {
+    println(esSegura("MiContraseñaFuerte!")) // Output: true
+    println(esSegura("corta"))              // Output: false
+}
+                </code></pre>
+                
+                <div class="solution-step">
+                    <strong>Solución Paso a Paso:</strong>
+                    <p>1. Para "MiContraseñaFuerte!": Largo (20 > 8) es true. No contiene "123" es true.</p>
+                    <p>2. Ambas condiciones son <code>true</code>, el operador <code>&&</code> devuelve true.</p>
+                    <p>3. Para "corta": Largo (5 > 8) es **false**. El operador <code>&&</code> inmediatamente devuelve false.</p>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>Ejercicio 3: Par o Impar</h3>
+                <p><strong>Descripción:</strong> Crea una función que use el operador módulo (<code>%</code>) para determinar si un número entero es par.</p>
+                
+                <p><strong>Código de la Función (Kotlin):</strong></p>
+                <pre><code>
+fun esPar(numero: Int): Boolean {
+    // Expresión Aritmética/Relacional: (numero % 2) == 0
+    return (numero % 2) == 0
+}
+
+fun main() {
+    println(esPar(4)) // Output: true
+    println(esPar(7)) // Output: false
+}
+                </code></pre>
+                
+                <div class="solution-step">
+                    <strong>Solución Paso a Paso:</strong>
+                    <p>1. Para 4: <code>4 % 2</code> (residuo) es <code>0</code>. La expresión <code>0 == 0</code> devuelve true.</p>
+                    <p>2. Para 7: <code>7 % 2</code> (residuo) es <code>1</code>. La expresión <code>1 == 0</code> devuelve false.</p>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>Ejercicio 4: Saludo Condicional de Acceso</h3>
+                <p><strong>Descripción:</strong> Crea una función que salude a un usuario solo si su rol es "Admin" O "Editor".</p>
+                
+                <p><strong>Código de la Función (Kotlin):</strong></p>
+                <pre><code>
+fun verificarAcceso(usuario: String, rol: String): String {
+    // Expresión Lógica: (rol == "Admin") || (rol == "Editor")
+    if ((rol == "Admin") || (rol == "Editor")) {
+        return "Bienvenido, $usuario. Acceso completo."
+    } else {
+        return "Acceso denegado."
+    }
+}
+
+fun main() {
+    println(verificarAcceso("Juan", "Admin"))      // Output: Bienvenido, Juan...
+    println(verificarAcceso("Pedro", "Invitado"))  // Output: Acceso denegado.
+}
+                </code></pre>
+                
+                <div class="solution-step">
+                    <strong>Solución Paso a Paso:</strong>
+                    <p>1. Para "Juan", el rol es "Admin". La primera parte del <code>||</code> es true, por lo tanto, el resultado es true y se permite el acceso.</p>
+                    <p>2. Para "Pedro", el rol no es "Admin" ni "Editor". Ambos lados del <code>||</code> son false, el resultado es false, se ejecuta el <code>else</code>.</p>
+                </div>
+            </div>
+
+            <div class="exercise">
+                <h3>Ejercicio 5: Conversión de Temperatura</h3>
+                <p><strong>Descripción:</strong> Convierte una temperatura de Celsius a Fahrenheit usando la fórmula: $\text{F} = (\text{C} \times 9/5) + 32$.</p>
+                
+                <p><strong>Código de la Función (Kotlin):</strong></p>
+                <pre><code>
+fun celsiusAFahrenheit(celsius: Double): Double {
+    // Expresión Aritmética Compleja: (celsius * 9.0 / 5.0) + 32.0
+    val fahrenheit = (celsius * 9.0 / 5.0) + 32.0
+    return fahrenheit
+}
+
+fun main() {
+    println(celsiusAFahrenheit(20.0)) // Output: 68.0
+}
+                </code></pre>
+                
+                <div class="solution-step">
+                    <strong>Solución Paso a Paso:</strong>
+                    <p>1. La función recibe <code>20.0</code>.</p>
+                    <p>2. Se usa <code>9.0 / 5.0</code> para forzar la división a ser de punto flotante. <code>(20.0 * 1.8)</code> resulta en <code>36.0</code>.</p>
+                    <p>3. <code>36.0 + 32.0</code> es igual a <code>68.0</code>.</p>
+                    <p><strong>Resultado Final:</strong> 68.0</p>
+                </div>
+            </div>
+
+            <div class="image-placeholder">
+                <p><img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgC9vQGhOXFJOnqESSDBV9FfvgYopitJVNbZcyVKU_raGzU309pxpJScbHcjx8_wcXU1XrhIwZVVdQO23w4ctfUF92s9WxmFbzs83V2toxS4y1aIAei2sX0eNgh8pESNbm3EO-wYxZ0yJxy/s640/borrar2.png"> Gráfico del flujo de una función (entrada, procesamiento, salida).</p>
+            </div>
+            
+
+        </section>
+        
+        <hr class="section-separator">
+        
+        <footer>
+            <p style="text-align: center; color: #adb5bd; font-size: 0.8em;">Fundamentos de Programación con Kotlin.</p>
+        </footer>
+
+    </div>
+    <div class="container">
+        <header>
+            <h1>Actividades en Clase: Jetpack Compose</h1>
+            <p>Implementación de Componentes Reutilizables y Calculadora Básica</p>
+        </header>
+
+        <section>
+            <h2>📝 Ejercicio 1: Componente Text Reutilizable</h2>
+            
+            <div class="description">
+                <strong>Objetivo:</strong> Crear un Composable llamado <code>TextUi</code> que encapsule estilos específicos (color, tamaño, fuente) y se pueda usar múltiples veces para mostrar datos personales.
+            </div>
+
+            <div class="code-container">
+                <h3>1. Archivo de Componente (<code>TextUi.kt</code>)</h3>
+                <div class="file-header">TextUi.kt</div>
+                <pre><code>
+@Composable
+fun TextUi(text: String){
+    Text(
+        text = text,
+        color = Color.Red,
+        fontSize = 20.sp,
+        fontFamily = FontFamily.Cursive,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .fillMaxWidth()
+            .background(Color.Blue)
+    )
+}
+                </code></pre>
+            </div>
+
+            <div class="code-container">
+                <h3>2. Archivo Principal (<code>MainActivity.kt</code>)</h3>
+                <div class="file-header">MainActivity.kt</div>
+                <pre><code>
+// Imports omitidos por simplicidad (androidx.compose.ui.*, etc.)
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+            Textos() // Llama a la función Composable principal
+        }
+    }
+}
+
+@Preview
+@Composable
+fun Textos(){
+    Column(modifier = Modifier.fillMaxWidth().padding()) {
+        TextUi(text = "Mi nombre es Fabricio Quillupangui")
+        TextUi(text = "Mi edad es 28 años")
+        TextUi(text = "Estudio Tecnologia Superior Universitaria en Desarrollo de Software")
+    }
+}
+                </code></pre>
+            </div>
+            
+        </section>
+
+        <hr style="margin: 50px 0;">
+
+        <section>
+            <h2>🧮 Ejercicio 2: Calculadora Básica (CRUD de UI)</h2>
+            
+            <div class="description">
+                <strong>Objetivo:</strong> Crear componentes reutilizables (<code>TextFieldUi</code>, <code>ButtonUi</code>) y usarlos en el <code>Formulario</code> principal para realizar operaciones matemáticas básicas (Suma, Resta, Multiplicación, División).
+            </div>
+
+            <div class="code-container">
+                <h3>1. Componente de Campo de Texto (<code>TextFieldUi.kt</code>)</h3>
+                <div class="file-header">TextFieldUi.kt</div>
+                <pre><code>
+@Composable
+fun CreateTextField(valor: String,
+                    label: String,
+                    onValue: (String)-> Unit){
+
+    TextField(value = valor,
+        onValueChange = onValue,
+        label ={ Text(text = label)},
+        modifier = Modifier
+            .fillMaxWidth()
+            .padding(10.dp)
+    )
+}
+                </code></pre>
+            </div>
+
+            <div class="code-container">
+                <h3>2. Componente de Botón (<code>ButtonUi.kt</code>)</h3>
+                <div class="file-header">ButtonUi.kt</div>
+                <pre><code>
+@Composable
+fun ButtonUi (text: String,
+              onClick:()-> Unit){
+    Button(onClick = onClick) {
+        Text(text = text,
+            textAlign = TextAlign.Center,
+            modifier = Modifier.fillMaxWidth())
+    }
+}
+                </code></pre>
+            </div>
+            
+            <div class="code-container">
+                <h3>3. Lógica Principal y Formulario (<code>MainActivity.kt</code>)</h3>
+                <div class="file-header">MainActivity.kt (Lógica de la Calculadora)</div>
+                <pre><code>
+// Imports omitidos por simplicidad (androidx.compose.runtime.*, etc.)
+
+class MainActivity : ComponentActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        enableEdgeToEdge()
+        setContent {
+           Miapp()
+        }
+    }
+}
+
+@Preview
+@Composable
+fun Miapp (){
+    Scaffold {
+        Formulario(it) // 'it' es el paddingValues proporcionado por Scaffold
+    }
+}
+
+@Composable
+fun Formulario(paddingValues: PaddingValues){
+    var numero1 by rememberSaveable { mutableStateOf("") }
+    var numero2 by rememberSaveable { mutableStateOf("") }
+    var resultado by rememberSaveable {mutableStateOf("") }
+    // val context = LocalContext.current // No usado en este código
+    
+    Column(modifier = Modifier.padding(paddingValues)) {
+        TextUi(text = "Calculadora") // Componente reutilizado del Ejercicio 1
+        
+        // Entrada de Números
+        CreateTextField(valor = numero1,
+                        label = "Ingrese primer número",
+                        onValue = {numero1 = it})
+        CreateTextField(valor = numero2,
+            label = "Ingrese segundo número",
+            onValue = {numero2 = it})
+            
+        // Botones de Operación (usando ButtonUi)
+        ButtonUi(text = "Sumar") {
+            val n1 = numero1.toDoubleOrNull() ?: 0.0
+            val n2 = numero2.toDoubleOrNull() ?: 0.0
+            resultado = "Resultado: ${n1 + n2}"
+        }
+        ButtonUi(text = "Restar") {
+            val n1 = numero1.toDoubleOrNull() ?: 0.0
+            val n2 = numero2.toDoubleOrNull() ?: 0.0
+            resultado = "Resultado: ${n1 - n2}"
+        }
+        ButtonUi(text = "Multiplicar") {
+            val n1 = numero1.toDoubleOrNull() ?: 0.0
+            val n2 = numero2.toDoubleOrNull() ?: 0.0
+            resultado = "Resultado: ${n1 * n2}"
+        }
+        ButtonUi(text = "Dividir") {
+            val n1 = numero1.toDoubleOrNull() ?: 0.0
+            val n2 = numero2.toDoubleOrNull() ?: 0.0
+
+            if (n2 != 0.0) {
+                resultado = "Resultado: ${n1 / n2}"
+            } else {
+                resultado = "ERROR: No se puede dividir por cero"
+            }
+        }
+        
+        // Resultado (usando TextUi)
+        TextUi(text = resultado)
+    }
+}
+                </code></pre>
+            </div>
+            
+            <div class="description" style="border-left: 5px solid #007bff;">
+                <strong>Concepto Clave:</strong> Este ejercicio demuestra cómo se maneja el **estado** en Compose (usando <code>rememberSaveable</code>) y cómo los **Composable Reutilizables** (<code>TextUi</code>, <code>ButtonUi</code>, <code>CreateTextField</code>) permiten construir interfaces complejas con código limpio y modular.
+            </div>
+
+        </section>
+
+        <footer>
+            <p style="text-align: center; color: #adb5bd; font-size: 0.8em; margin-top: 40px;"></p>
+        </footer>
+
+    </div>
+       <h1>Ejercicios prácticos y Readme (Dar click en los enlaces)</h1>
+<a href="https://drive.google.com/file/d/1pgpw0UoFal6Wl5mBnWxlsShFWMyRelFa/view?usp=sharing">Video de los 2 ejercicios prácticos subiendo en Google Drive</a><br>
+<a href="https://github.com/fabricioquillupangui1/leccion1_actuacionenclase_pva/blob/main/README.md">Enlace de github a Readme</a>
+</body>
+</html>
