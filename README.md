@@ -1,9 +1,6 @@
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
 📘 FUNDAMENTOS CLAVE DE PROGRAMACIÓN CON KOTLIN
 Expresiones, Operadores, Funciones y Jetpack Compose
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-
-© 2025 – Fundamentos de Programación con Kotlin
 
 📌 INTRODUCCIÓN
 
